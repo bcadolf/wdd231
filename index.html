@@ -7,22 +7,68 @@
 
     <title>TITLE</title>
     <meta name="author" content="Brandon Adolf">
-    <meta name="description" content="DESCRIPTION">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link href="styles.css" rel="stylesheet">
+    <meta name="description" content="WDD 231 HomePage">
 
-    <script src="main.js" defer></script>
+    <link href="styles/main.css" rel="stylesheet">
+
+    <script src="scripts/main.js" defer></script>
+
+    <!-- FONT IMPORT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- END FONT -->
 </head>
 
 <body>
     <header>
-
+        <div>
+            <img class="profile" src="images/profile.jpeg"
+                alt="Picture of my son and myself in front of the captital building.">
+            <h1>Brandon C Adolf</h1>
+            <button id="hamMenu">&equiv;</button>
+        </div>
+        <div id="navdiv">
+            <nav id="menu">
+                <ul>
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="#">CHAMBER</a></li>
+                    <li><a href="https://github.com/bcadolf" target="_blank">GITHUB PROFILE</a></li>
+                    <li><a href="https://www.linkedin.com/in/brandon-adolf" target="_blank">LINKEDIN</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
-
+        <section id="first">
+            <h3>Course Work</h3>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+        <section id="aside">
+            <h3>Virgina, United States</h3>
+            <figure>
+                <img src="images/red-cardinal.webp" alt="Virginia State Bird - Red Cardinal">
+                <figcaption>Red Cardinal - State Bird</figcaption>
+            </figure>
+        </section>
+        <section id="base">
+            <h3>Web and Computer Programming Certificate</h3>
+            <nav id="coursebuttons">
+                <a href="#" id="all">All</a>
+                <a href="#" id="cse">CSE</a>
+                <a href="#" id="wdd">WDD</a>
+            </nav>
+            <div id="courses">
+            </div>
+        </section>
     </main>
     <footer>
-
+        <p>&#169;<span id="currentyear"></span>&#10031; Brandon Adolf &#10031; Virginia, USA</p>
+        <p id="lastModified"></p>
     </footer>
 </body>
 
