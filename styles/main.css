@@ -164,6 +164,22 @@ figure img {
     background-color: var(--primary-color);
 }
 
+footer {
+    background-color: var(--primary-color);
+    color: var(--background);
+    text-align: center;
+    padding: 15px;
+}
+
+#lastModified {
+    background-color: var(--accent-color);
+    color: var(--text);
+    width: 20%;
+    margin-left: 40%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 @media screen and (min-width: 600px) {
 
     #hamMenu {
@@ -193,5 +209,21 @@ figure img {
 
     #courses button {
         width: 25%;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+
+    section {
+        border: 1px solid var(--secondary-color);
+        border-radius: 16px;
+    }
+
+    #base {
+        grid-column: 1/ span 2;
+        width: 60%;
+        margin-left: 20%;
     }
 }
