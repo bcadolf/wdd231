@@ -151,7 +151,7 @@ figure img {
     flex-direction: column;
 }
 
-#courses button {
+.need {
     color: var(--background);
     background-color: var(--secondary-color);
     font-size: 1.5rem;
@@ -161,7 +161,12 @@ figure img {
 }
 
 .done {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--background);
+    font-size: 1.5rem;
+    padding: 5px 25px;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 footer {

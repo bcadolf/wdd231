@@ -132,6 +132,12 @@ function buttons(courses) {
     const button = document.createElement('button');
 
     button.innerHTML = `${courses.subject} ${courses.number}`;
+    if (courses.completed) {
+        button.classList.add('done');
+    } else if (!courses.completed) {
+        button.classList.add('need');
+    };
+    button.id = courses.number
     return button
 };
 
@@ -144,26 +150,15 @@ function loadButtons(filter) {
         .filter(filter)
         .forEach(button => {
             const createButton = buttons(button);
-            div.appendChild(createButton)
+            div.appendChild(createButton);
         });
 };
 
+// script used to listen for which buttons to load based on user selection and also the default load option
 document.getElementById('all').addEventListener('click', () => loadButtons(() => true));
 document.getElementById('cse').addEventListener('click', () => loadButtons(courses => courses.subject == 'CSE'));
 document.getElementById('wdd').addEventListener('click', () => loadButtons(courses => courses.subject == 'WDD'));
-
-
 loadButtons(() => true)
 
-// function loadCourseCard(filter) {
-
-
-
-// };
-
-//used to mark which classes are completed for css 
-// const completedButton = documment.getElementsByTagName('button')
-
-// if (courses.completed = true) {
-//     completedButton.classList.toggle('done')
-// };
+// script to load detailed course cards upon button selection.
+// document.getElementById('110').addEventListener('click', () => courseCard(courses => courses.number == 110));
