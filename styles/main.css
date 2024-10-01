@@ -169,6 +169,10 @@ figure img {
     border-radius: 10px;
 }
 
+#creditTotal {
+    text-align: center;
+}
+
 footer {
     background-color: var(--primary-color);
     color: var(--background);

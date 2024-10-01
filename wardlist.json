@@ -1,0 +1,17 @@
+{
+    "wardlist": [
+        {
+            "familyName": "",
+            "moveInDate": "",
+            "numberOfMembers": 0,
+            "visited": false,
+            "familyMembers": [
+                {
+                    "name": "",
+                    "gender": "",
+                    "birtdate": ""
+                }
+            ]
+        }
+    ]
+}

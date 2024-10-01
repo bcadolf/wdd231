@@ -130,7 +130,6 @@ function courseCard(courses) {
 // create course buttons and load them to the page with the options to dynaicmally filter which are displayed.
 function buttons(courses) {
     const button = document.createElement('button');
-
     button.innerHTML = `${courses.subject} ${courses.number}`;
     if (courses.completed) {
         button.classList.add('done');
@@ -141,17 +140,24 @@ function buttons(courses) {
     return button
 };
 
+
+
 function loadButtons(filter) {
     const div = document.getElementById('courses')
 
     div.innerHTML = "";
-
+    let num = 0
     courses
         .filter(filter)
         .forEach(button => {
             const createButton = buttons(button);
             div.appendChild(createButton);
+
+            num = num + button.credits
+
         });
+    const creditCount = document.getElementById('creditCount');
+    creditCount.textContent = num
 };
 
 // script used to listen for which buttons to load based on user selection and also the default load option
@@ -159,6 +165,9 @@ document.getElementById('all').addEventListener('click', () => loadButtons(() =>
 document.getElementById('cse').addEventListener('click', () => loadButtons(courses => courses.subject == 'CSE'));
 document.getElementById('wdd').addEventListener('click', () => loadButtons(courses => courses.subject == 'WDD'));
 loadButtons(() => true)
+
+// total up the visible courses credits
+
 
 // script to load detailed course cards upon button selection.
 // document.getElementById('110').addEventListener('click', () => courseCard(courses => courses.number == 110));
