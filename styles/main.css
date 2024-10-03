@@ -15,6 +15,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    border: none;
+}
+
 body {
     background-color: var(--background);
     color: var(--text);

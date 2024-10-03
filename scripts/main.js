@@ -153,7 +153,9 @@ function loadButtons(filter) {
             const createButton = buttons(button);
             div.appendChild(createButton);
 
-            num = num + button.credits
+            if (button.completed) {
+                num = num + button.credits;
+            };
 
         });
     const creditCount = document.getElementById('creditCount');
