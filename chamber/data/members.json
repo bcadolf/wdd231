@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Tech Innovators",
+        "address": "123 Innovation Drive, Richmond, VA 23219",
+        "phone": "(123) 456-7890",
+        "website": "https://www.techinnovators.com",
+        "image": "tech_innovators.png",
+        "membershipLevel": 3
+    },
+    {
+        "name": "Green Solutions",
+        "address": "456 Eco Lane, Richmond, VA 23219",
+        "phone": "(321) 654-0987",
+        "website": "https://www.greensolutions.com",
+        "image": "green_solutions.png",
+        "membershipLevel": 2
+    },
+    {
+        "name": "Health Horizons",
+        "address": "789 Wellness Way, Richmond, VA 23219",
+        "phone": "(987) 654-3210",
+        "website": "https://www.healthhorizons.com",
+        "image": "health_horizons.png",
+        "membershipLevel": 1
+    },
+    {
+        "name": "EduPath",
+        "address": "101 Learning Blvd, Richmond, VA 23219",
+        "phone": "(654) 321-0987",
+        "website": "https://www.edupath.com",
+        "image": "edupath.png",
+        "membershipLevel": 3
+    },
+    {
+        "name": "Finance Futures",
+        "address": "202 Money Ave, Richmond, VA 23219",
+        "phone": "(567) 890-1234",
+        "website": "https://www.financefutures.com",
+        "image": "finance_futures.png",
+        "membershipLevel": 2
+    },
+    {
+        "name": "Creative Minds",
+        "address": "303 Imagination Road, Richmond, VA 23219",
+        "phone": "(432) 109-8765",
+        "website": "https://www.creativeminds.com",
+        "image": "creative_minds.png",
+        "membershipLevel": 1
+    },
+    {
+        "name": "Global Ventures",
+        "address": "404 Business Park, Richmond, VA 23219",
+        "phone": "(210) 987-6543",
+        "website": "https://www.globalventures.com",
+        "image": "global_ventures.png",
+        "membershipLevel": 3
+    }
+]
