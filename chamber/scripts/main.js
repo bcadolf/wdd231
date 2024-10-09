@@ -6,6 +6,32 @@ const today = new Date();
 currentyear.textContent = today.getFullYear();
 lastModified.textContent = `Last Modified: ${document.lastModified}`;
 
+const navToggle = document.getElementById('navToggle');
+
+navToggle.addEventListener('click', () => {
+    const navigation = document.getElementById('navigation');
+
+    const links1 = `
+    <a href="index.html">Home</a>
+    <a href="#discover">Discover</a>
+    <a href="directory.html">Directory</a>
+    <a href="#join">Join</a>
+  `;
+
+    const links2 = `
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#events">Events</a>
+  `;
+
+    navigation.innerHTML = (navigation.innerHTML === links1) ? links2 : links1
+    navToggle.classList.toggle('inverse')
+});
+
+
+
+
 // member card for the directory and other pages
 const directory = document.getElementById('directory');
 const gridType = document.createElement('button');
