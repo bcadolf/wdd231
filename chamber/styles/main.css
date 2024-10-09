@@ -18,6 +18,7 @@ body {
 
 a {
     text-decoration: none;
+    color: var(--background-color);
 }
 
 header {
@@ -27,8 +28,6 @@ header {
     justify-content: space-around;
     align-items: center;
 }
-
-
 
 #navToggle {
     width: 2rem;
@@ -54,6 +53,10 @@ header {
 
 #hamMenu:hover {
     border-radius: 50%;
+    color: var(--accent-color);
+}
+
+#navigation a:hover {
     color: var(--accent-color);
 }
 
