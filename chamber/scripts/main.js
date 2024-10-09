@@ -41,19 +41,31 @@ const memberData = 'https://bcadolf.github.io/wdd231/chamber/data/members.json';
 async function getMembersData() {
     const response = await fetch(memberData);
     const data = await response.json();
-    console.table(data.members);
 
-    // displayMembers(data.members)
+    displayMembers(data.members)
 }
 
-getMembersData()
 
-function createCard(data) {
-    const memberCard = document.createElement('div')
-    memberCard.classList.add = 'card'
-
-    memberCard.innerHTML = ``
+const members = getMembersData()
+function createMemberCard(member) {
+    return `
+            <div class="card">
+                <img src="${member.image}" alt="${member.name}">
+                <h2>${member.name}</h2>
+                <p><strong>Address:</strong> ${member.address}</p>
+                <p><strong>Phone:</strong> ${member.phone}</p>
+                <p><strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+                <p><strong>Membership Level:</strong> ${member.membershipLevel}</p>
+            </div>
+        `;
 }
+
+const membersContainer = document.getElementById('directory');
+const displayMembers = (members) => {
+    members.forEach(member => {
+        membersContainer.innerHTML += createMemberCard(member);
+    });
+};
 
 const memberList = document.createElement('div')
 
