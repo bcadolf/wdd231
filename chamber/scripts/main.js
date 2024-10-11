@@ -34,7 +34,6 @@ navToggle.addEventListener('click', () => {
 
 // member card for the directory and other pages
 const directory = document.getElementById('directory');
-const gridType = document.createElement('button');
 const memberData = 'https://bcadolf.github.io/wdd231/chamber/data/members.json';
 
 
@@ -42,11 +41,9 @@ async function getMembersData() {
     const response = await fetch(memberData);
     const data = await response.json();
 
-    displayMembers(data.members)
+    displayMembers(data.members);
 }
 
-
-const members = getMembersData()
 function createMemberCard(member) {
     return `
             <div class="card">
@@ -60,13 +57,35 @@ function createMemberCard(member) {
         `;
 }
 
-const membersContainer = document.getElementById('directory');
-const displayMembers = (members) => {
+function createMemberList(member) {
+    return `
+        <div class="list">
+                <h2>${member.name}</h2>
+                <p><strong>Address:</strong> ${member.address} <strong>Phone:</strong> ${member.phone} <strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+            </div>`
+}
+let cardView = true;
+
+function displayMembers(members) {
+    const membersContainer = directory;
+    membersContainer.innerHTML = ''; // Clear previous content
+
     members.forEach(member => {
-        membersContainer.innerHTML += createMemberCard(member);
+        membersContainer.innerHTML += cardView ? createMemberCard(member) : createMemberList(member);
     });
-};
+}
 
-const memberList = document.createElement('div')
+document.getElementById('grid').addEventListener('click', () => {
+    const members = getMembersData();
+    cardView = true; // Set view to card view
+    displayMembers(members); // Refresh the view
+});
 
-memberList.classList.add = 'list'
+document.getElementById('list').addEventListener('click', () => {
+    const members = getMembersData();
+    cardView = false; // Set view to list view
+    displayMembers(members); // Refresh the view
+});
+
+// Initial display
+getMembersData();
