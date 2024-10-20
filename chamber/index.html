@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Richmond Chamber of Commerce</title>
     <meta name="author" content="Brandon Adolf">
@@ -29,7 +29,7 @@
 <body>
     <header>
         <img src="" alt="">
-        <h1>Richmond Chamber of Commerce - Directory</h1>
+        <h1>Richmond Chamber of Commerce - Home</h1>
         <nav id="navigation">
             <a href="index.html">Home</a>
             <a href="#discover">Discover</a>
@@ -41,18 +41,32 @@
         <div id="hamMenu">&equiv;</div>
     </header>
     <main>
-        <img class="hero" src="" alt="">
-        <button>Join Now</button>
+        <div class="hero-container">
+            <img class="hero" src="images/home-hero.webp"
+                alt="Photo of a waterfall in Lynchburg, Virgina. from: Andrea on Pexels.com">
+            <a id="hero-button" href="#join">Join Us</a>
+        </div>
+        <h2>Home</h2>
         <section>
             <h3>Current Events</h3>
             <ul></ul>
         </section>
         <aside>
+            <!-- will be using api to populate both-->
+            <div id="currentWeather">
+                <h3>Current Weather</h3>
+                <p>The current temperature in Richmond is <span id="currentTemp"></span>&deg;F</p>
+                <figure>
+                    <img id="weatherIcon" src="" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </div>
+            <div id="weatherForecast">
+                <h3>Weather Forecast</h3>
 
+            </div>
         </aside>
-        <aside>
-            <h3>Ads</h3>
-            <div id="sponsored"></div>
+        <aside id="sponsored">
         </aside>
     </main>
     <footer>

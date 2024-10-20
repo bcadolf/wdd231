@@ -42,7 +42,7 @@ async function getMembersData() {
     const data = await response.json();
 
     displayMembers(data.members);
-}
+};
 
 function createMemberCard(member) {
     return `
@@ -55,7 +55,7 @@ function createMemberCard(member) {
                 <p><strong>Membership Level:</strong> ${member.membershipLevel}</p>
             </div>
         `;
-}
+};
 
 function createMemberList(member) {
     return `
@@ -63,7 +63,8 @@ function createMemberList(member) {
                 <h2>${member.name}</h2>
                 <p><strong>Address:</strong> ${member.address} <strong>Phone:</strong> ${member.phone} <strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
             </div>`
-}
+};
+
 let cardView = true;
 
 function displayMembers(members) {
@@ -73,19 +74,62 @@ function displayMembers(members) {
     members.forEach(member => {
         membersContainer.innerHTML += cardView ? createMemberCard(member) : createMemberList(member);
     });
-}
-
-document.getElementById('grid').addEventListener('click', () => {
-    const members = getMembersData();
-    cardView = true; // Set view to card view
-    displayMembers(members); // Refresh the view
-});
-
-document.getElementById('list').addEventListener('click', () => {
-    const members = getMembersData();
-    cardView = false; // Set view to list view
-    displayMembers(members); // Refresh the view
-});
+};
+const grid = document.getElementById('grid');
+const list = document.getElementById('list');
+if (grid) {
+    grid.addEventListener('click', () => {
+        const members = getMembersData();
+        cardView = true; // Set view to card view
+        displayMembers(members); // Refresh the view
+    });
+};
+if (list) {
+    list.addEventListener('click', () => {
+        const members = getMembersData();
+        cardView = false; // Set view to list view
+        displayMembers(members); // Refresh the view
+    });
+};
 
 // Initial display
 getMembersData();
+
+
+// weather api 
+
+const currentTemp = document.getElementById('currentTemp');
+const weatherIcon = document.getElementById('weatherIcon');
+const weatherDesc = document.querySelector('figcaption');
+const urlToday = 'https://api.openweathermap.org/data/2.5/weather?lat=37.5407&lon=-77.4360&appid=5798cd2611c6e48b6ad7cedaf22ec77e&units=imperial';
+
+async function apiWeather() {
+    try {
+        const response = await fetch(urlToday);
+        if (response.ok) {
+            const data = await response.json();
+            displayResults(data);
+        } else {
+            throw Error(await response.text());
+        }
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+// call api
+apiWeather();
+if (currentTemp) {
+    function displayResults(data) {
+        currentTemp.textContent = `${data.main.temp}`;
+        const iconscr = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+        let desc = data.weather[0].description;
+        weatherIcon.setAttribute('src', iconscr);
+        weatherIcon.setAttribute('alt', iconscr);
+        weatherDesc.textContent = `${desc}`;
+    };
+
+};
+// const weekday = today.
+let futureTemp = document.createElement()
+const url3day = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=37.5407&lon=-77.4360&appid=5798cd2611c6e48b6ad7cedaf22ec77e&cnt=3";

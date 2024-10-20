@@ -40,7 +40,7 @@ header {
 }
 
 .inverse {
-    background: linear-gradient(to right, transparent 50%, var(--accent-color) 50%);
+    background: linear-gradient(to left, transparent 50%, var(--accent-color) 50%);
 }
 
 #hamMenu {
@@ -97,9 +97,44 @@ header {
     background-color: var(--secondary-color);
 }
 
+.hero-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.hero {
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+}
+
+#hero-button {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    background: var(--background-color);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #a7a6a6ce;
+}
+
+#hero-button:hover {
+    color: var(--accent-color);
+    border-color: var(--secondary-color);
+}
+
+
+
 footer {
     display: flex;
     justify-content: space-between;
     padding: 2rem;
     background: var(--secondary-color);
+    padding-left: 10%;
+    padding-right: 10%;
 }
