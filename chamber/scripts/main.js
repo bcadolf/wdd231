@@ -131,5 +131,5 @@ if (currentTemp) {
 
 };
 // const weekday = today.
-let futureTemp = document.createElement()
+// let futureTemp = document.createElement()
 const url3day = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=37.5407&lon=-77.4360&appid=5798cd2611c6e48b6ad7cedaf22ec77e&cnt=3";
