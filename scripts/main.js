@@ -97,79 +97,80 @@ const courses = [
 ]
 // end of copied content
 
-// course cards creation
-function courseCard(courses) {
-    const table = document.createElement('table');
 
-    table.innerHTML = ` <tr>
-            <th colspan="2">${courses.title}</th>
-            </tr>
-            <tr>
-                <td colspan="2">${courses.subject} ${courses.number}</td>
-            </tr>
-            <tr>
-                <td>Credits:</td>
-                <td>${courses.credits}</td>
-            </tr>
-            <tr>
-                <td>Certificate:</td>
-                <td>${courses.certificate}</td>
-            </tr>
-            <tr>
-                <td colspan="2">${courses.description}</td>
-            </tr>
-            <tr>
-                <td>Programming Language(s) Used:</td>
-                <td>${courses.technology}</td>
-            </tr>`;
-
-
-    return table
-};
-
-// create course buttons and load them to the page with the options to dynaicmally filter which are displayed.
-function buttons(courses) {
+function buttons(course, index) {
     const button = document.createElement('button');
-    button.innerHTML = `${courses.subject} ${courses.number}`;
-    if (courses.completed) {
-        button.classList.add('done');
-    } else if (!courses.completed) {
-        button.classList.add('need');
-    };
-    button.id = courses.number
-    return button
-};
-
-
+    button.innerHTML = `${course.subject} ${course.number}`;
+    button.classList.add(course.completed ? 'done' : 'need');
+    button.classList.add('modalButton');
+    button.setAttribute('data-id', index);
+    return button;
+}
 
 function loadButtons(filter) {
-    const div = document.getElementById('courses')
-
+    const div = document.getElementById('courses');
     div.innerHTML = "";
-    let num = 0
+    let num = 0;
+
     courses
         .filter(filter)
-        .forEach(button => {
-            const createButton = buttons(button);
+        .forEach((course, index) => {
+            const createButton = buttons(course, index);
             div.appendChild(createButton);
-
-            if (button.completed) {
-                num = num + button.credits;
-            };
-
+            if (course.completed) {
+                num += course.credits;
+            }
         });
+
     const creditCount = document.getElementById('creditCount');
-    creditCount.textContent = num
-};
+    if (creditCount) {
+        creditCount.textContent = num;
+    }
 
-// script used to listen for which buttons to load based on user selection and also the default load option
+
+    document.querySelectorAll('.modalButton').forEach(button => {
+        button.addEventListener('click', event => {
+            const courseId = event.target.getAttribute('data-id');
+            const course = courses[courseId];
+            const modal = document.querySelector('.modal');
+            const modalBody = document.getElementById('modal-body');
+
+            function createModal(course) {
+                modalBody.innerHTML = `
+                    <tr>
+                        <th colspan="2">${course.title}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">${course.subject} ${course.number}</td>
+                    </tr>
+                    <tr>
+                        <td>Credits:</td>
+                        <td>${course.credits}</td>
+                    </tr>
+                    <tr>
+                        <td>Certificate:</td>
+                        <td>${course.certificate}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">${course.description}</td>
+                    </tr>
+                    <tr>
+                        <td>Programming Language(s) Used:</td>
+                        <td>${course.technology}</td>
+                    </tr>`;
+            }
+
+            createModal(course);
+            modal.showModal();
+
+            document.querySelector('.close-button').addEventListener('click', () => {
+                modal.close();
+            });
+        });
+    });
+}
+
 document.getElementById('all').addEventListener('click', () => loadButtons(() => true));
-document.getElementById('cse').addEventListener('click', () => loadButtons(courses => courses.subject == 'CSE'));
-document.getElementById('wdd').addEventListener('click', () => loadButtons(courses => courses.subject == 'WDD'));
-loadButtons(() => true)
-
-// total up the visible courses credits
-
-
-// script to load detailed course cards upon button selection.
-// document.getElementById('110').addEventListener('click', () => courseCard(courses => courses.number == 110));
+document.getElementById('cse').addEventListener('click', () => loadButtons(course => course.subject === 'CSE'));
+document.getElementById('wdd').addEventListener('click', () => loadButtons(course => course.subject === 'WDD'));
+loadButtons(() => true);

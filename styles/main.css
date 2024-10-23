@@ -177,6 +177,29 @@ figure img {
     text-align: center;
 }
 
+dialog {
+    margin: auto;
+    border: 1px solid var(--accent-color);
+    border-radius: .25rem;
+    padding: 1rem;
+    background-color: var(--background);
+    box-shadow: 0 0 3rem #777;
+    width: 90%;
+    max-width: 600px;
+}
+
+::backdrop {
+    background-color: #00530055;
+
+}
+
+dialog button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 1px solid var(--accent-color);
+}
+
 footer {
     background-color: var(--primary-color);
     color: var(--background);
