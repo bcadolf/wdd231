@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Richmond Chamber of Commerce</title>
+    <meta name="author" content="Brandon Adolf">
+    <meta name="description" content="DESCRIPTION">
+    <link rel="icon" href="favicon.ico">
+    <!-- FONT IMPORT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- END FONT -->
+    <meta property="og:title" content="Richmond Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://en.wikipedia.org/wiki/Richmond,_Virginia#/media/File:A_downtown_view_of_Richmond,_VA.jpg">
+    <meta property="og:url" content="https://bcadolf.github.io/wdd231/chamber">
+    <link rel="icon" href="favicon.ico">
+    <link href="styles/main.css" rel="stylesheet">
+
+    <script src="scripts/main.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <img src="#" alt="">
+        <h1>Richmond Chamber of Commerce - Join</h1>
+        <nav id="navigation">
+            <a href="index.html">Home</a>
+            <a href="#discover">Discover</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html">Join</a>
+            <!-- use js to populate the alternating nav menu -->
+        </nav>
+        <button id="navToggle"></button>
+        <div id="hamMenu">&equiv;</div>
+    </header>
+    <main class="join-page">
+        <div>
+            <form action="thankyou.html" method="get" class="membershipApplication">
+                <label>First Name<br><input type="text" required autocomplete="given-name" name="first"
+                        title="Your First Name"></label>
+                <label>Last Name<br><input type="text" required autocomplete="family-name" name="last"
+                        title="Your Last Name"></label>
+                <label>Organization Title<br><input type="text" required name="organization-title"
+                        autocomplete="organization-title"
+                        title="Please enter the applicant's organizational title within their organization"
+                        pattern="[a-zA-Z- ]{7,}"></label>
+                <label>Email<br><input type="email" required autocomplete="email" name="email"
+                        title="The email for contacting you" placeholder="yourdesiredemail@domain.com"></label>
+                <label>Phone<br><input type="tel" required name="phone" title="Mobile Phone Number"
+                        autocomplete="tel-national"></label>
+                <label>Organization Name<br><input type="text" required name="organization-name"
+                        title="Name of the organization applying" autocomplete="organization"></label>
+                <label>Membership Level<br><select name="member-level" required>
+                        <option value="">&#9886; Select One &#9887;</option>
+                        <option value="np">Non-Profit</option>
+                        <option value="bronze">Bronze</option>
+                        <option value="silver">Silver</option>
+                        <option value="gold">Gold</option>
+                    </select></label>
+                <label>Description<br><textarea name="description"
+                        placeholder="Enter a description of your organization"
+                        title="Enter a description of your organization" rows="8" cols="35"></textarea></label>
+                <input type="hidden" name="timestamp" id="timestamp">
+                <!-- update value with timestamp set when the submit button is clicked-->
+                <button type="submit">Send Application</button>
+            </form>
+        </div>
+        <aside>
+            <h2>Membership Types</h2>
+            <div class="mem-containers"><button class="membership-btn" data-type="non-profit">Non-Profit</button></div>
+            <div class="mem-containers"><button class="membership-btn" data-type="bronze">Bronze</button></div>
+            <div class="mem-containers"><button class="membership-btn" data-type="silver">Silver</button></div>
+            <div class="mem-containers"><button class="membership-btn" data-type="gold">Gold</button></div>
+            <dialog id="membership-modal">
+                <div class="mem-content">
+                    <button class="close-button">&#x2717;</button>
+                    <table>
+                        <tbody id="mem-body">
+                            <!-- Membership details will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </dialog>
+        </aside>
+
+
+    </main>
+    <footer>
+        <div>
+            <p>Richmond Chamber of Commerce <br>
+                1000 Bank St
+                Richmond, VA 23218</p>
+            <a href="mailto:info@richmondcc.org">info@richmondcc.org</a>
+            <a href="tel:+12223334444">(222) 333-4444</a>
+        </div>
+        <div>
+            <a href="https://www.youtube.com"><img src="images/youtube-icon.svg" alt="youtube icon link" width="38"
+                    height="38"></a>
+            <a href="https://www.linkedin.com/home"><img src="images/linkedin-icon.svg" alt="linkedin icon link"
+                    width="36" height="36"></a>
+            <a href="https://x.com"><img src="images/x-icon.svg" alt="x icon link" width="34" height="34"></a>
+        </div>
+        <div>
+            <p>WDD231 Class Project</p>
+            <p>Brandon Adolf</p>
+            <p>&#169;<span id="currentyear"></span> Richmond Chamber of Commerce</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+
+</html>

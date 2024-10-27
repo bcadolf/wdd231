@@ -128,8 +128,6 @@ header {
     border-color: var(--secondary-color);
 }
 
-
-
 footer {
     display: flex;
     justify-content: space-between;
@@ -137,4 +135,66 @@ footer {
     background: var(--secondary-color);
     padding-left: 10%;
     padding-right: 10%;
+}
+
+
+/* for the join page. */
+
+.join-page {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--secondary-color);
+    width: 300px;
+    margin: 25px auto;
+    padding: 40px;
+    align-items: center;
+    background-color: #00297b53;
+    border-radius: 5px;
+}
+
+label {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 3px double var(--secondary-color);
+    width: 90%;
+}
+
+textarea {
+    padding: 3px;
+}
+
+form button {
+    margin: 20px auto;
+    padding: 5px;
+    width: fit-content;
+}
+
+
+.mem-containers {
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    width: 250px;
+    height: 60px;
+    margin: 50px 5px;
+    background-color: #3f863fad;
+    animation: fadein 5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

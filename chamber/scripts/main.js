@@ -15,7 +15,7 @@ navToggle.addEventListener('click', () => {
     <a href="index.html">Home</a>
     <a href="#discover">Discover</a>
     <a href="directory.html">Directory</a>
-    <a href="#join">Join</a>
+    <a href="join.html">Join</a>
   `;
 
     const links2 = `
@@ -28,7 +28,6 @@ navToggle.addEventListener('click', () => {
     navigation.innerHTML = (navigation.innerHTML === links1) ? links2 : links1
     navToggle.classList.toggle('inverse')
 });
-
 
 
 
@@ -133,3 +132,59 @@ if (currentTemp) {
 // const weekday = today.
 // let futureTemp = document.createElement()
 const url3day = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=37.5407&lon=-77.4360&appid=5798cd2611c6e48b6ad7cedaf22ec77e&cnt=3";
+
+
+// join page modals
+
+const membershipTiers = [
+    {
+        "name": "non-profit",
+        "price": 0,
+        "benefit": "Access to basic resources and networking opportunities."
+    },
+    {
+        "name": "bronze",
+        "price": 15,
+        "benefit": "Includes non-profit benefits plus quarterly newsletters and event discounts."
+    },
+    {
+        "name": "silver",
+        "price": 30,
+        "benefit": "Includes bronze benefits plus premium content and early event registration."
+    },
+    {
+        "name": "gold",
+        "price": 50,
+        "benefit": "Includes silver benefits plus VIP event access and personalized support."
+    }
+];
+
+document.querySelectorAll('.membership-btn').forEach(button => {
+    button.addEventListener('click', event => {
+        const membershipType = event.target.getAttribute('data-type');
+        const membership = membershipTiers.find(tier => tier.name === membershipType);
+        const modal = document.getElementById('membership-modal');
+        const modalBody = document.getElementById('mem-body');
+
+        modalBody.innerHTML = `
+            <tr>
+                <th colspan="2">${membership.name.charAt(0).toUpperCase() + membership.name.slice(1)} Membership</th>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>$${membership.price}</td>
+            </tr>
+            <tr>
+                <td>Benefit:</td>
+                <td>${membership.benefit}</td>
+            </tr>
+        `;
+
+        modal.showModal();
+
+        document.querySelector('.close-button').addEventListener('click', () => {
+            modal.close();
+        });
+    });
+});
+

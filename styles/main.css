@@ -186,6 +186,7 @@ dialog {
     box-shadow: 0 0 3rem #777;
     width: 90%;
     max-width: 600px;
+    animation: spinModal 1.5s ease-in-out;
 }
 
 ::backdrop {
@@ -261,5 +262,15 @@ footer {
         grid-column: 1/ span 2;
         width: 60%;
         margin-left: 20%;
+    }
+}
+
+@keyframes spinModal {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(1440deg);
     }
 }
