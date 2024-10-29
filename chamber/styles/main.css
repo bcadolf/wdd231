@@ -78,6 +78,39 @@ header {
     border-radius: 8px;
 }
 
+aside,
+article {
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    margin: 5px auto;
+    padding: 15px;
+    max-width: 40%;
+    min-width: fit-content;
+    height: fit-content;
+}
+
+figure {
+    text-align: center;
+    border: 1px dashed var(--primary-color);
+    background-color: #3f863f60;
+}
+
+.discover-img img {
+    margin: 15px;
+}
+
+.discover-img img:hover {
+    animation: hover 1s ease-in-out forwards;
+}
+
+#discover {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#discover article {
+    margin: 25px auto;
+}
 
 #grid,
 #list {
@@ -196,5 +229,16 @@ form button {
 
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes hover {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1.01);
     }
 }

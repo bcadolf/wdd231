@@ -13,7 +13,7 @@ navToggle.addEventListener('click', () => {
 
     const links1 = `
     <a href="index.html">Home</a>
-    <a href="#discover">Discover</a>
+    <a href="discover.html">Discover</a>
     <a href="directory.html">Directory</a>
     <a href="join.html">Join</a>
   `;
